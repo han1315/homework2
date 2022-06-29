@@ -1,0 +1,58 @@
+#!/bin/bash
+
+echo "Please enter time [ ab cd (00<=ab<23 00<=cd<=60)] :"
+echo "example : 03 45"
+read hour minute
+if [ $hour = "00" ];then
+echo "It is midnight."
+elif [ $hour = "01" ]; then
+echo "It is middle of the night."
+elif [ $hour = "02" ]; then
+echo "It is early morning."
+elif [ $hour = "03" ]; then
+echo "It is early morning."
+elif [ $hour = "04" ]; then
+echo "It is early morning."
+elif [ $hour = "05" ]; then
+echo "It is early morning."
+elif [ $hour = "06" ]; then
+echo "It is morning."
+elif [ $hour = "07" ]; then
+echo "It is morning."
+elif [ $hour = "08" ]; then
+echo "It is morning."
+elif [ $hour = "09" ]; then
+echo "It is late morning."
+elif [ $hour = "10" ]; then
+echo "It is late morning now."
+elif [ $hour = "11" ]; then
+echo "It is late morning."
+elif [ $hour = "12" ]; then
+echo "It is midday."
+elif [ $hour = "13" ]; then
+echo "It is afternoon."
+elif [ $hour = "14" ]; then
+echo "It is afternoon."
+elif [ $hour = "15" ]; then
+echo "It is afternoon."
+elif [ $hour = "16" ]; then
+echo "It is late afternoon."
+elif [ $hour = "17" ]; then
+echo "It is early evening."
+elif [ $hour = "18" ]; then
+echo "It is early evening."
+elif [ $hour = "19" ]; then
+echo "It is evening."
+elif [ $hour = "20" ]; then
+echo "It is evening."
+elif [ $hour = "21" ]; then
+echo "It is late evening."
+elif [ $hour = "22" ]; then
+echo "It is late evening."
+elif [ $hour = "23" ]; then
+echo "It is night."
+else
+echo "Sorry, $hour $minute not recognized."
+exit 1
+fi
+exit 0

@@ -1,0 +1,127 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Shell脚本报告}
+
+
+\author{洪晨瀚 \\ 信息与计算科学 3200300133}
+
+\begin{document}
+
+\maketitle
+
+\section{脚本叙述}
+原脚本为输入是否为早上并对使用者回答早上好或下午好。核心思想为判断对错并进行回答，若输入的不是对或错则提示错误。新脚本旨在告诉使用者各个时间段对应的英文称呼，提升使用者在进行英文写作或沟通等情况时对于时间段的表述能力。用户运行在脚本后，只需输入时间，就能知道该时间对应的英文称呼。
+
+\subsection{原脚本代码}
+\begin{verbatim}
+#!/bin/bash
+
+echo "Is it morning? Please answer yes or no"
+read timeofday
+if [ "$timeofday" = "yes" ]
+then
+echo "Good morning"
+elif [ "$timeofday" = "no" ]; then
+echo "Good afternoon"
+else
+echo "Sorry, $timeofday not recognized. Enter yes or no"
+exit 1
+fi
+exit 0
+\end{verbatim}
+
+\subsection{演示示例1}
+\begin{verbatim}
+Is it morning? Please answer yes or no
+yes
+Good morning
+\end{verbatim}
+
+\subsection{演示示例2}
+\begin{verbatim}
+Is it morning? Please answer yes or no
+yes
+Good morning
+\end{verbatim}
+
+\subsection{新脚本代码}
+\begin{verbatim}
+#!/bin/bash
+
+echo "Please enter time [ ab cd (00<=ab<23 00<=cd<=60)] :"
+echo "example : 03 45"
+read hour minute
+if [ $hour = "00" ];then
+echo "It is midnight."
+elif [ $hour = "01" ]; then
+echo "It is middle of the night."
+elif [ $hour = "02" ]; then
+echo "It is early morning."
+elif [ $hour = "03" ]; then
+echo "It is early morning."
+elif [ $hour = "04" ]; then
+echo "It is early morning."
+elif [ $hour = "05" ]; then
+echo "It is early morning."
+elif [ $hour = "06" ]; then
+echo "It is morning."
+elif [ $hour = "07" ]; then
+echo "It is morning."
+elif [ $hour = "08" ]; then
+echo "It is morning."
+elif [ $hour = "09" ]; then
+echo "It is late morning."
+elif [ $hour = "10" ]; then
+echo "It is late morning now."
+elif [ $hour = "11" ]; then
+echo "It is late morning."
+elif [ $hour = "12" ]; then
+echo "It is midday."
+elif [ $hour = "13" ]; then
+echo "It is afternoon."
+elif [ $hour = "14" ]; then
+echo "It is afternoon."
+elif [ $hour = "15" ]; then
+echo "It is afternoon."
+elif [ $hour = "16" ]; then
+echo "It is late afternoon."
+elif [ $hour = "17" ]; then
+echo "It is early evening."
+elif [ $hour = "18" ]; then
+echo "It is early evening."
+elif [ $hour = "19" ]; then
+echo "It is evening."
+elif [ $hour = "20" ]; then
+echo "It is evening."
+elif [ $hour = "21" ]; then
+echo "It is late evening."
+elif [ $hour = "22" ]; then
+echo "It is late evening."
+elif [ $hour = "23" ]; then
+echo "It is night."
+else
+echo "Sorry, $hour $minute not recognized."
+exit 1
+fi
+exit 0
+\end{verbatim}
+
+\subsection{演示示例}
+\begin{verbatim}
+Please enter time [ ab cd (00<=ab<23 00<=cd<=60)] :
+example : 03 45
+12 34
+It is midday.
+\end{verbatim}
+
+\section{修改与心得}
+\begin{flushleft}
+我对该脚本做的修改为将问候改为报时间段，输入从一个增加到两个，增加了许多\verb|elif|进行判断，从\verb|if|到\verb|elif|再到\verb|else|总计25条判断语句，使用者必须依照格式输入才能得到结果，否则会进行报错。其中的判断语句与源代码基本一致，只更改了内容。
+这次的脚本修改让我了解了\verb|shell|的输入与输出以及判断语句的写法和应用，知道了\verb|if|后要加\verb|fi|作为结束，程序介绍还要增加一个\verb|exit0|，以及\verb|exit1|是作为异常退出时对操作系统的返回。
+\end{flushleft}
+
+
+\end{document}
